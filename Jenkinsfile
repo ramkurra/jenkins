@@ -4,9 +4,20 @@ pipeline{
 
     stages{
 
-        stage('build'){
+        stage('init'){
             steps{
-               sh 'echo "hello" ' 
+               sh 'echo "in Init" ' 
+            }
+        }
+           stage('build'){
+            steps{
+               sh 'echo "in Build" ' 
+            }
+        }
+
+               stage('deploy'){
+            steps{
+               sh 'echo "in deploy" ' 
             }
         }
        

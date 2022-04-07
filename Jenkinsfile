@@ -1,12 +1,19 @@
 pipeline{
     
     agent any
-
+    environment{
+        JENKINS_HOME="/var/jenkins_home"
+        USER="ramkurra"
+    }
     stages{
 
         stage('init'){
             steps{
-               sh 'echo "in Init" ' 
+               sh '''
+               echo "in Init" 
+               echo "jenkins home is ${JENKINS_HOME}"
+               echo "USER is ${USER}"
+               '''
             }
         }
            stage('build'){

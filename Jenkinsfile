@@ -40,6 +40,12 @@ pipeline{
             steps{
                sh 'echo "in deploy" ' 
                sh 'echo "Git user is ${GIT_USER}"'
+
+               withCredentials([
+                   usernamePassword(credentials: 'GitRepoRK', usernameVariable: USER, passwordVariable: PASS)
+               ]){
+                   sh 'echo "User is ${USER} and password is ${PASS}"'
+               }
             }
         }
        

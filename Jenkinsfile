@@ -4,10 +4,9 @@ pipeline{
     environment{
         JENKINS_HOME="/var/jenkins_home"
         USER="ramkurra"
+         GIT_USER=credentials( 'GitRepoRK')
     }
-    credentials{
-        GIT_USER=credentials( 'GitRepoRK')
-    }
+   
     stages{
 
         stage('init'){

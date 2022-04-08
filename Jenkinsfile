@@ -5,6 +5,9 @@ pipeline{
         JENKINS_HOME="/var/jenkins_home"
         USER="ramkurra"
     }
+    credentials{
+        GIT_USER=credentials( 'GitRepoRK')
+    }
     stages{
 
         stage('init'){
@@ -19,12 +22,14 @@ pipeline{
            stage('build'){
             steps{
                sh 'echo "in Build" ' 
+                sh 'echo "in Build" ' 
             }
         }
 
                stage('deploy'){
             steps{
                sh 'echo "in deploy" ' 
+               SH 'echo "Git user is ${GIT_USER}"'
             }
         }
        

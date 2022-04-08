@@ -4,10 +4,9 @@ pipeline{
     environment{
         JENKINS_HOME="/var/jenkins_home"
         USER="ramkurra"
+         GIT_USER=credentials( 'GitRepoRK')
     }
-    credentials{
-        GIT_USER=credentials( 'GitRepoRK')
-    }
+   
     stages{
 
         stage('init'){
@@ -22,7 +21,18 @@ pipeline{
            stage('build'){
             steps{
                sh 'echo "in Build" ' 
-                sh 'echo "in Build" ' 
+            
+            }
+        }
+        stage('test'){
+            when{
+                expression{
+                    env.BRANCH_NAME=='testmulti'
+                }
+            }
+            steps{
+               sh 'echo "in test" ' 
+             
             }
         }
 
@@ -33,6 +43,17 @@ pipeline{
             }
         }
        
+    }
+    post{
+        always{
+            sh 'echo "in always " ' 
+        }
+        success{
+            sh 'echo "in success" ' 
+        }
+        failure{
+            sh 'echo "in failure" ' 
+        }
     }
  
 }

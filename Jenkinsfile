@@ -2,6 +2,8 @@ pipeline{
     
     agent any
     environment{
+        USER=""
+        PASSWORD=""
         JENKINS_HOME="/var/jenkins_home"
         USER="ramkurra"
          GIT_USER=credentials( 'GitRepoRK')

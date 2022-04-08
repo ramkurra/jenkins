@@ -34,7 +34,7 @@ pipeline{
        
     }
     post{
-        alwasys{
+        always{
             sh 'echo "in always " ' 
         }
         success{

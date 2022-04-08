@@ -42,7 +42,7 @@ pipeline{
                sh 'echo "Git user is ${GIT_USER}"'
 
                withCredentials([
-                   usernameColonPassword(credentialsId: 'GitRepoRK', usernameVariable: 'USER', passwordVariable: 'PWD')
+                   usernamePassword(credentialsId: 'GitRepoRK', usernameVariable: 'USER', passwordVariable: 'PWD')
                ]){
                    sh 'echo "User is ${USER} and password is ${PWD}"'
                }

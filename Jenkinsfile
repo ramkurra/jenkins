@@ -21,7 +21,18 @@ pipeline{
            stage('build'){
             steps{
                sh 'echo "in Build" ' 
-                sh 'echo "in Build" ' 
+            
+            }
+        }
+        stage('test'){
+            when{
+                expression{
+                    env.BRANCH_NAME=='testmulti'
+                }
+            }
+            steps{
+               sh 'echo "in test" ' 
+             
             }
         }
 

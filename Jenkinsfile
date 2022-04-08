@@ -33,5 +33,16 @@ pipeline{
         }
        
     }
+    post{
+        alwasys{
+            sh 'echo "in always " ' 
+        }
+        success{
+            sh 'echo "in success" ' 
+        }
+        failure{
+            sh 'echo "in failure" ' 
+        }
+    }
  
 }

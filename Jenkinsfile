@@ -29,7 +29,7 @@ pipeline{
                stage('deploy'){
             steps{
                sh 'echo "in deploy" ' 
-               SH 'echo "Git user is ${GIT_USER}"'
+               sh 'echo "Git user is ${GIT_USER}"'
             }
         }
        

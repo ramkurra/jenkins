@@ -2,8 +2,6 @@ pipeline{
     
     agent any
     environment{
-        MYUSER=""
-        MYPASSWORD=""
         JENKINS_HOME="/var/jenkins_home"
         USER="ramkurra"
          GIT_USER=credentials( 'GitRepoRK')
@@ -44,9 +42,9 @@ pipeline{
                sh 'echo "Git user is ${GIT_USER}"'
 
                withCredentials([
-                   usernamePassword(credentialsId: 'GitRepoRK', usernameVariable: MYUSER, passwordVariable: MYPASSWORD)
+                   usernameColonPassword(credentialsId: 'GitRepoRK', usernameVariable: 'USER', passwordVariable: 'PWD')
                ]){
-                   sh 'echo "User is ${USER} and password is ${PASSWORD}"'
+                   sh 'echo "User is ${USER} and password is ${PWD}"'
                }
             }
         }
